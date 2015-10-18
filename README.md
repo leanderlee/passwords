@@ -3,9 +3,8 @@
 
 ## Setup
 
-```bash
-chmod u+x setup.sh && ./setup.sh
-```
+1. Clone the repository
+2. Include the repository in your PATH
 
 ## Display passwords
 

@@ -1,5 +1,6 @@
 FILE=${1-"data"};
 BACKUP_DIR=${2-"backups"};
+PASSWORDS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Which Service Name To Remove?"
 echo -n "> "
@@ -20,5 +21,5 @@ if [ "$DIFF" == "" ]; then
 fi
 
 # Write to $FILE (backup first)
-./backup.sh $FILE $BACKUP_DIR
+$PASSWORDS_DIR/backup.sh $FILE $BACKUP_DIR
 openssl des3 -in <(echo "$NEW_DATA") -out $FILE
