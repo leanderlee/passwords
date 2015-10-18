@@ -6,12 +6,12 @@ HEADER="Passwords in \"$FILE\"
 - - - - - - - - - -
 "
 
-DATA="`openssl des3 -d -in $FILE &> /dev/null`" || {
+DATA="`openssl des3 -d -in $FILE 2> /dev/null`" || {
 	echo "Could not read \"$FILE\"."
 	exit 1;
 }
 
-if [ -z $DATA ]; then
+if [ "$DATA" == "" ]; then
 	echo $'\n'"   No passwords in \"$FILE\""$'\n' | less
 	exit 0;
 fi

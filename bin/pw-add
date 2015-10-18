@@ -4,7 +4,7 @@ FILE=${1-"data"};
 BACKUP_DIR=${2-"backups"};
 PASSWORDS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-OLD_DATA="`openssl des3 -d -in $FILE &> /dev/null`" || {
+OLD_DATA="`openssl des3 -d -in $FILE 2> /dev/null`" || {
 	echo "Could not read \"$FILE\"."
 	exit 1;
 }
@@ -30,4 +30,7 @@ Password: $PASSWORD"
 
 # Write to $FILE (backup first)
 $PASSWORDS_DIR/pw-backup $FILE $BACKUP_DIR
+
+echo "WRITING: $NEW_DATA"
+rm $FILE;
 openssl des3 -in <(echo "$NEW_DATA") -out $FILE;
