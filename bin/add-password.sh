@@ -1,6 +1,18 @@
+#!/bin/bash
+
 FILE=${1-"data"};
 BACKUP_DIR=${2-"backups"};
 PASSWORDS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+OLD_DATA="`openssl des3 -d -in $FILE &> /dev/null`" || {
+	echo "Could not read \"$FILE\"."
+	exit 1;
+}
+
+if [ "$OLD_DATA" != "" ]
+then
+	OLD_DATA="$OLD_DATA"$'\n'$'\n'
+fi
 
 echo -n "Service Name: "
 read SERVICE
@@ -11,12 +23,6 @@ read -s PASSWORD
 echo
 
 
-OLD_DATA="`openssl des3 -d -in $FILE`"
-
-if [ "$OLD_DATA" != "" ]
-then
-	OLD_DATA="$OLD_DATA"$'\n'$'\n'
-fi
 
 NEW_DATA="$OLD_DATA$SERVICE
 Username: $USERNAME

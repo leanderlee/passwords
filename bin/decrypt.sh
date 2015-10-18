@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FILE=${1-"data"};
 
 HEADER="Passwords in \"$FILE\"

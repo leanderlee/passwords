@@ -1,12 +1,17 @@
+#!/bin/bash
+
 FILE=${1-"data"};
 BACKUP_DIR=${2-"backups"};
 PASSWORDS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+OLD_DATA="`openssl des3 -d -in $FILE &> /dev/null`" || {
+	echo "Could not read \"$FILE\"."
+	exit 1;
+}
+
 echo "Which Service Name To Remove?"
 echo -n "> "
 read SERVICE
-
-OLD_DATA="`openssl des3 -d -in $FILE`"
 
 NEW_DATA=$(sed "/^$SERVICE$/ { N; N; N; d; }" <<< "$OLD_DATA") || {
 	echo 'Search failed.';
