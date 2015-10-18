@@ -26,5 +26,5 @@ if [ "$DIFF" == "" ]; then
 fi
 
 # Write to $FILE (backup first)
-$PASSWORDS_DIR/backup.sh $FILE $BACKUP_DIR
+$PASSWORDS_DIR/pw-backup $FILE $BACKUP_DIR
 openssl des3 -in <(echo "$NEW_DATA") -out $FILE

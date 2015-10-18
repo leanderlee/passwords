@@ -3,13 +3,20 @@
 
 ## Setup
 
-1. Clone the repository
-2. Include the repository in your PATH
+Simply install via `npm`.
+
+```bash
+npm install -g pwds
+```
 
 ## Display passwords
 
+Go to a directory where you want to save the encrypted password file.
+
+Then do:
+
 ```bash
-./decrypt.sh
+pw-list [filename] [backup_dir]
 ```
 ... and enter the password.
 
@@ -17,17 +24,15 @@
 ## Add passwords
 
 ```bash
-./add-password.sh
+./pw-add
 ```
-Follow the prompts on the screen.
 
-... and enter the password three times (the second two times will be to write to the new file, so if you want to change the password, you can enter a new password there.)
+Follow the prompts on the screen.
 
 ## Remove a password
 
 ```bash
-./remove-password.sh
+./pw-remove
 ```
-Follow the prompts on the screen.
 
-... and enter the password three times, and that password entry will be removed.
+Follow the prompts on the screen.

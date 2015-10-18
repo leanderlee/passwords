@@ -1,0 +1,24 @@
+{
+  "name": "pwds",
+  "version": "1.0.0",
+  "description": "Simple command line utility to save passwords to a file, encrypted with OpenSSL DES3.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leanderlee/passwords.git"
+  },
+  "keywords": [
+    "password",
+    "passwords",
+    "management"
+  ],
+  "author": "Leander Lee <me@leander.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leanderlee/passwords/issues"
+  },
+  "homepage": "https://github.com/leanderlee/passwords"
+}
