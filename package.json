@@ -1,6 +1,6 @@
 {
   "name": "pwds",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple command line utility to save passwords to a file, encrypted with OpenSSL DES3.",
   "main": "index.js",
   "scripts": {
