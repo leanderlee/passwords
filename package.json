@@ -15,6 +15,13 @@
     "passwords",
     "management"
   ],
+  "bin": {
+    "pw-init": "./bin/pw-init",
+    "pw-list": "./bin/pw-list",
+    "pw-add": "./bin/pw-add",
+    "pw-remove": "./bin/pw-remove",
+    "pw-backup": "./bin/pw-backup"
+  },
   "author": "Leander Lee <me@leander.ca>",
   "license": "MIT",
   "bugs": {
