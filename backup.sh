@@ -1,8 +1,9 @@
+FILE=${1-"data"};
+DIR=${2-"backups"};
 
 DATE="`date "+%Y-%m-%dT%H:%M:%SZ"`"
-DIR="backups"
-FILE="data"
 
-cp data "$DIR/data-$DATE"
+mkdir -p "$DIR"
+cp "$FILE" "$DIR/$FILE-$DATE"
 
-echo "Backup for data."
+echo "Backup \"$FILE\"."

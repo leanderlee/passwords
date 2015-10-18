@@ -1,8 +1,12 @@
-FILE="data";
-TMPFILE="display.txt";
+FILE=${1-"data"};
 
-openssl des3 -d -in "$FILE" -out "$TMPFILE"
-chmod 400 "$TMPFILE"
-(sleep 0.2; rm -f "$TMPFILE") &
-less "$TMPFILE"
-rm -f "$TMPFILE"
+HEADER="Passwords in \"$FILE\"
+- - - - - - - - - -
+"
+
+DATA="`openssl des3 -d -in $FILE`" || {
+	echo "Wrong password."
+	exit 1;
+}
+
+echo "$HEADER"$'\n'"$DATA"$'\n'$'\n'$'\n' | less

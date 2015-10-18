@@ -1,5 +1,5 @@
-FILE="data";
-TMP_FILE="secret.tmp";
+FILE=${1-"data"};
+BACKUP_DIR=${2-"backups"};
 
 echo -n "Service Name: "
 read SERVICE
@@ -9,13 +9,18 @@ echo -n "Password: "
 read -s PASSWORD
 echo
 
-./backup.sh
 
-openssl des3 -d -in $FILE -out $TMP_FILE;
-echo $SERVICE >> $TMP_FILE
-echo "Username: $USERNAME" >> $TMP_FILE
-echo "Password: $PASSWORD" >> $TMP_FILE
-echo "" >> $TMP_FILE
+OLD_DATA="`openssl des3 -d -in $FILE`"
 
-openssl des3 -in $TMP_FILE -out $FILE;
-rm $TMP_FILE;
+if [ "$OLD_DATA" != "" ]
+then
+	OLD_DATA="$OLD_DATA"$'\n'$'\n'
+fi
+
+NEW_DATA="$OLD_DATA$SERVICE
+Username: $USERNAME
+Password: $PASSWORD"
+
+# Write to $FILE (backup first)
+./backup.sh $FILE $BACKUP_DIR
+openssl des3 -in <(echo "$NEW_DATA") -out $FILE;
