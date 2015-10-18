@@ -31,6 +31,5 @@ Password: $PASSWORD"
 # Write to $FILE (backup first)
 $PASSWORDS_DIR/pw-backup $FILE $BACKUP_DIR
 
-echo "WRITING: $NEW_DATA"
 rm $FILE;
 openssl des3 -in <(echo "$NEW_DATA") -out $FILE;
