@@ -24,7 +24,7 @@ pw-list [filename] [backup_dir]
 ## Add passwords
 
 ```bash
-./pw-add
+pw-add [filename] [backup_dir]
 ```
 
 Follow the prompts on the screen.
@@ -32,7 +32,7 @@ Follow the prompts on the screen.
 ## Remove a password
 
 ```bash
-./pw-remove
+pw-remove [filename] [backup_dir]
 ```
 
 Follow the prompts on the screen.
