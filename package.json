@@ -1,5 +1,5 @@
 {
-  "name": "pwds",
+  "name": "pw-list",
   "version": "1.2.1",
   "description": "Simple command line utility to save passwords to a file, encrypted with OpenSSL DES3.",
   "main": "index.js",
@@ -11,6 +11,9 @@
     "url": "https://github.com/leanderlee/passwords.git"
   },
   "keywords": [
+    "pw-list",
+    "openssl",
+    "list",
     "password",
     "passwords",
     "management"
