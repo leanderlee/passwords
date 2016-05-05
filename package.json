@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leanderlee/passwords.git"
+    "url": "https://github.com/leanderlee/pw-list.git"
   },
   "keywords": [
     "pw-list",
@@ -28,7 +28,7 @@
   "author": "Leander Lee <me@leander.ca>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leanderlee/passwords/issues"
+    "url": "https://github.com/leanderlee/pw-list/issues"
   },
-  "homepage": "https://github.com/leanderlee/passwords"
+  "homepage": "https://github.com/leanderlee/pw-list"
 }

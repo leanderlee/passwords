@@ -6,7 +6,7 @@
 Simply install via `npm`.
 
 ```bash
-npm install -g pwds
+npm install -g pw-list
 ```
 
 ## Display passwords
